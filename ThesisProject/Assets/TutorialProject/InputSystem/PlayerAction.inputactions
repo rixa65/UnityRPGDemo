@@ -51,15 +51,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "CrouchStop",
-                    "type": "Button",
-                    "id": "7cbc8e51-95c8-4b25-a1db-f776513ef33a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Sprint",
                     "type": "Button",
                     "id": "9d1ef5a8-f4ab-4885-81d2-4d02cea9ff5d",
@@ -81,15 +72,6 @@
                     "name": "ThirdPersonCamera",
                     "type": "Button",
                     "id": "f63ab436-a7f4-4366-99a2-75d22e52dc78",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ThirdPersonCameraStop",
-                    "type": "Button",
-                    "id": "f5844c0e-7dd8-4aec-9dc4-de6f7f34edfb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -242,17 +224,6 @@
                 },
                 {
                     "name": "",
-                    "id": "48d279a0-1e96-439b-9beb-5f869278ceed",
-                    "path": "<Keyboard>/c",
-                    "interactions": "Press(behavior=1)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CrouchStop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ee3bc6f7-25e4-439f-a32c-2833179f6d19",
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",
@@ -281,17 +252,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "ThirdPersonCamera",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "62d37830-38e8-4e51-b8a1-11a77c833e09",
-                    "path": "<Keyboard>/f",
-                    "interactions": "Press(behavior=1)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ThirdPersonCameraStop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

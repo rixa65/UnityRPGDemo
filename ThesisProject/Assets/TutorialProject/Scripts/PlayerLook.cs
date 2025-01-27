@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +10,7 @@ public class PlayerLook : MonoBehaviour
     float yRotation;
     float mouseX = 0;
     float mouseY = 0;
+    bool thirdPersonCamera = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,17 +21,37 @@ public class PlayerLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        mouseX = mouseSensitivity * mouseX * Time.fixedDeltaTime;
-        mouseY = mouseSensitivity * mouseY * Time.fixedDeltaTime;
+        mouseX *= mouseSensitivity * Time.fixedDeltaTime;
+        mouseY *= mouseSensitivity * Time.fixedDeltaTime;
         yRotation += mouseX;
-        xRotation = Mathf.Clamp(xRotation-mouseY, -60, 60);
-        CameraHolderObjectTransform.rotation = Quaternion.Euler(xRotation, yRotation,0    );
+        
         transform.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        if (!thirdPersonCamera)
+        {
+            xRotation = Mathf.Clamp(xRotation - mouseY, -60, 40);
+            CameraHolderObjectTransform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        }
+        
     }
     private void OnLook(InputValue input)
     {
         Vector2 mouseVector = input.Get<Vector2>();
         mouseX = mouseVector.x; 
         mouseY = mouseVector.y; 
+    }
+    private void OnThirdPersonCamera()
+    {
+        if (thirdPersonCamera)
+        {
+            thirdPersonCamera = false;
+            CameraHolderObjectTransform.transform.localPosition -= Offset;
+        }
+        else
+        {
+            thirdPersonCamera = true;
+            CameraHolderObjectTransform.transform.localPosition += Offset;
+            CameraHolderObjectTransform.rotation = transform.rotation;
+        }
     }
 }

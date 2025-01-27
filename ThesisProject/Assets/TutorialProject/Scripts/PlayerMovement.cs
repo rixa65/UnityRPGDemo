@@ -8,15 +8,19 @@ public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody characterRB;
+    CapsuleCollider characterCollider;
     Vector3 movementInput;
     Vector3 movementVector;
     float currentMovementSpeed;
+    bool crouching = false;
     [SerializeField] float movementSpeed = 100f;
     [SerializeField] float crouchSpeedMultiplier = 0.5f;
     [SerializeField] float sprintSpeedMultiplier = 1.5f;
+    [SerializeField] float crouchDepth = 1f;
     void Start()
     {
         characterRB = GetComponent<Rigidbody>();
+        characterCollider = GetComponent<CapsuleCollider>();
         movementVector = Vector3.zero;
         currentMovementSpeed = movementSpeed;
     }
@@ -32,12 +36,22 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCrouch() 
     {
-        currentMovementSpeed = movementSpeed * crouchSpeedMultiplier;
+        if(crouching)
+        {
+            currentMovementSpeed = movementSpeed;
+            characterCollider.transform.localScale += new Vector3(0, crouchDepth / 2, 0);
+            crouching =false;
+        }
+        else
+        {
+            currentMovementSpeed = movementSpeed * crouchSpeedMultiplier;
+            characterCollider.transform.localScale -= new Vector3(0, crouchDepth / 2, 0);
+            transform.localPosition -= new Vector3(0, crouchDepth, 0);
+            crouching = true;
+        }
+        
     }
-    private void OnCrouchStop()
-    {
-        currentMovementSpeed = movementSpeed;
-    }
+
     private void OnMovementStop(InputValue input)
     {
         movementInput = Vector3.zero;
@@ -45,11 +59,17 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnSprint()
     {
-        currentMovementSpeed = movementSpeed * sprintSpeedMultiplier;
+        if (!crouching)
+        {
+            currentMovementSpeed = movementSpeed * sprintSpeedMultiplier;
+        }
     }
     private void OnSprintStop()
     {
-        currentMovementSpeed = movementSpeed;
+        if (!crouching)
+        {
+            currentMovementSpeed = movementSpeed;
+        }
     }
     private void ApplyMovement()
     {
