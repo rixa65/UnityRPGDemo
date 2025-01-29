@@ -9,6 +9,9 @@ public class SoundBank : MonoBehaviour
     
     public static SoundBank Instance { get; private set; }
     public AudioClip stepAudio;
+    public AudioClip creepyWomanLaughterAudio;
+    public AudioClip sneezesAudio;
+    public AudioClip stomachNoisesAudio;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.

@@ -3467,6 +3467,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepAudio: {fileID: 8300000, guid: 62595305ccc3e5140847bc5d4e28dd68, type: 3}
+  creepyWomanLaughterAudio: {fileID: 8300000, guid: 6a973a12f4056ae4fb2ce843e5f8d861, type: 3}
+  sneezesAudio: {fileID: 8300000, guid: 3c273ff1705c0ce49a5ce9592de2ff4a, type: 3}
+  stomachNoisesAudio: {fileID: 8300000, guid: 8a5c708930f02174faca2203a0e2a6af, type: 3}
 --- !u!1001 &281672601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4060,6 +4063,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2805030322442587799, guid: fcd332ab5d878d34cb4e74aa1fe7fe61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858615635640840302, guid: fcd332ab5d878d34cb4e74aa1fe7fe61, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9050557809827418289, guid: fcd332ab5d878d34cb4e74aa1fe7fe61, type: 3}
@@ -9717,6 +9724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97f8c77753716140b70a981b64ec2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerIdleSoundWait: 15
 --- !u!82 &925376817
 AudioSource:
   m_ObjectHideFlags: 0

@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         {
             currentMovementSpeed = movementSpeed * crouchSpeedMultiplier;
             characterCollider.transform.localScale -= new Vector3(0, crouchDepth / 2, 0);
-            transform.localPosition -= new Vector3(0, crouchDepth, 0);
             crouching = true;
         }
         
