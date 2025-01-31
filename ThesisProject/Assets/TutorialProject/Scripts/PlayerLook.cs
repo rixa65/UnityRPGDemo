@@ -34,6 +34,14 @@ public class PlayerLook : MonoBehaviour
         }
         
     }
+    public void SetSensitivity(int newSensitivity)
+    {
+        mouseSensitivity=newSensitivity;
+    }
+    public int GetSensitivity()
+    {
+        return mouseSensitivity;
+    }
     private void OnLook(InputValue input)
     {
         Vector2 mouseVector = input.Get<Vector2>();
