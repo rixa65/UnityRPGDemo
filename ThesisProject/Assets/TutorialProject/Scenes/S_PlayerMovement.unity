@@ -7391,8 +7391,20 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 1344962677}
+        m_TargetAssemblyTypeName: GraphicsMenu, Assembly-CSharp
+        m_MethodName: ToggleFullScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &508587388
 GameObject:
   m_ObjectHideFlags: 0
@@ -17401,7 +17413,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 756971965}
   m_HandleRect: {fileID: 508587389}
   m_Direction: 0
-  m_MinValue: 10
+  m_MinValue: 1
   m_MaxValue: 50
   m_WholeNumbers: 1
   m_Value: 20
@@ -17411,7 +17423,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1344962677}
         m_TargetAssemblyTypeName: GraphicsMenu, Assembly-CSharp
         m_MethodName: ChangeSensitivity
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18508,6 +18520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d4562267a14bc4b8fdfa43ef3f13fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolutionDropDown: {fileID: 1633510051}
   mouseSensitivitySlider: {fileID: 1280126937}
   sensitivityValueTxt: {fileID: 340991678}
 --- !u!1001 &1359250015
@@ -22217,7 +22230,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1344962677}
+        m_TargetAssemblyTypeName: GraphicsMenu, Assembly-CSharp
+        m_MethodName: ChangeResolution
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1633510052
 MonoBehaviour:

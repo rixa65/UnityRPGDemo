@@ -39,6 +39,8 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
         playerObject.GetComponent<PlayerInput>().enabled = false;
+        playerObject.GetComponent<AudioSource>().enabled = false;
+        playerObject.GetComponent<PlayerSounds>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         pauseMenuObject.SetActive(true);
@@ -48,7 +50,9 @@ public class PauseMenu : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1;
+        playerObject.GetComponent<PlayerSounds>().enabled = true;
         playerObject.GetComponent<PlayerInput>().enabled = true;
+        playerObject.GetComponent<AudioSource>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pauseMenuObject.SetActive(false);
