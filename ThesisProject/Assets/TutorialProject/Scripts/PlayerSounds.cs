@@ -19,7 +19,6 @@ public class PlayerSounds : MonoBehaviour
     {
         if (idle)
         {
-            print(timerIdleSound);
             timerIdleSound += Time.fixedDeltaTime;
 
             if (timerIdleSound >= timerIdleSoundWait)
