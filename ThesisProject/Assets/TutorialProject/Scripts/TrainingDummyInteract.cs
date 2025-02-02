@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class TrainingDummyInteract : MonoBehaviour, IInteractable
 {
+    [SerializeField] SO_Dialogue TrainingDummyDialogue;
+    [SerializeField] SO_Dialogue TrainingDummySecondDialogue;
+    bool talkedTo = false;
     public void Interact()
     {
-        Debug.Log("Hello! I am a training dummy");
+        if (!talkedTo)
+        {
+            talkedTo = true;
+            DialogueManager.Instance.StartDialogue(TrainingDummyDialogue);
+        }
+        else if (talkedTo)
+        {
+            DialogueManager.Instance.StartDialogue(TrainingDummySecondDialogue);
+        }
+            
     }
 
 }

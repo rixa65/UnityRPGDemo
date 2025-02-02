@@ -51,7 +51,8 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         playerObject.GetComponent<PlayerSounds>().enabled = true;
-        playerObject.GetComponent<PlayerInput>().enabled = true;
+        if (!DialogueManager.Instance.InDialogue)
+            playerObject.GetComponent<PlayerInput>().enabled = true;
         playerObject.GetComponent<AudioSource>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

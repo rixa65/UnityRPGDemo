@@ -7,7 +7,7 @@ public class PlayerSounds : MonoBehaviour
     // Start is called before the first frame update
     AudioSource characterAudioSource;
     bool idle = true;
-    float timerIdleSound = 0f;
+    bool idleSoundStarted = false;
     [SerializeField] float  timerIdleSoundWait = 5f;
     void Start()
     {
@@ -17,23 +17,20 @@ public class PlayerSounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (idle)
+        if (idle && !idleSoundStarted)
         {
-            timerIdleSound += Time.fixedDeltaTime;
-
-            if (timerIdleSound >= timerIdleSoundWait)
-            {
-                timerIdleSound -= timerIdleSoundWait;
-                PlayRandomIdleSound();
-            }
+            idleSoundStarted = true;
+            StartCoroutine(PlayRandomIdleSound());
         }
-        else if(timerIdleSound != 0f) 
+        else if(!idle && idleSoundStarted)
         {
-            timerIdleSound = 0f;
+           idleSoundStarted = false;
+           StopCoroutine(PlayRandomIdleSound());
         }
     }
-    private void PlayRandomIdleSound()
+    IEnumerator PlayRandomIdleSound()
     {
+        yield return new WaitForSeconds(timerIdleSoundWait);
         if (!characterAudioSource.isPlaying)
         {
             int randomNumber = Random.Range(0, 3);
@@ -50,8 +47,8 @@ public class PlayerSounds : MonoBehaviour
                     break;
             }
             characterAudioSource.Play();
+            idleSoundStarted = false;
         }
-            
     }
     private void OnMovement()
     {
