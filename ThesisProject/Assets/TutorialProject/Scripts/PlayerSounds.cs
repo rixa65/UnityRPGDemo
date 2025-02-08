@@ -6,27 +6,28 @@ public class PlayerSounds : MonoBehaviour
 {
     // Start is called before the first frame update
     AudioSource characterAudioSource;
-    bool idle = true;
-    bool idleSoundStarted = false;
+    //bool idle = true;
+    //bool idleSoundStarted = false;
     [SerializeField] float  timerIdleSoundWait = 5f;
     void Start()
     {
         characterAudioSource = GetComponent<AudioSource>();
+        StartCoroutine(PlayRandomIdleSound());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (idle && !idleSoundStarted)
-        {
-            idleSoundStarted = true;
-            StartCoroutine(PlayRandomIdleSound());
-        }
-        else if(!idle && idleSoundStarted)
-        {
-           idleSoundStarted = false;
-           StopCoroutine(PlayRandomIdleSound());
-        }
+        //if (idle && !idleSoundStarted)
+        //{
+        //    idleSoundStarted = true;
+        //    StartCoroutine(PlayRandomIdleSound());
+        //}
+        //else if(!idle && idleSoundStarted)
+        //{
+        //   idleSoundStarted = false;
+        //   StopCoroutine(PlayRandomIdleSound());
+        //}
     }
     IEnumerator PlayRandomIdleSound()
     {
@@ -47,24 +48,25 @@ public class PlayerSounds : MonoBehaviour
                     break;
             }
             characterAudioSource.Play();
-            idleSoundStarted = false;
+            StartCoroutine(PlayRandomIdleSound());
+            //idleSoundStarted = false;
         }
     }
     private void OnMovement()
     {
-        idle = false;
+        //idle = false;
         characterAudioSource.clip = SoundBank.Instance.stepAudio;
         if (characterAudioSource.isPlaying)
             characterAudioSource.UnPause();
         else
             characterAudioSource.Play();
-
+        StopAllCoroutines();
     }
 
     private void OnMovementStop()
     {
-        idle = true;
+        //idle = true;
         characterAudioSource.Pause();
-
+        StartCoroutine(PlayRandomIdleSound());
     }
 }

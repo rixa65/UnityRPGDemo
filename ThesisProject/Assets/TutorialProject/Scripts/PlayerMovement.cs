@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     Rigidbody characterRB;
     CapsuleCollider characterCollider;
+    Animator characterAnimator;
     Vector3 movementInput;
     Vector3 movementVector;
     float currentMovementSpeed;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         characterRB = GetComponent<Rigidbody>();
         characterCollider = GetComponent<CapsuleCollider>();
+        characterAnimator = GetComponent<Animator>();
         movementVector = Vector3.zero;
         currentMovementSpeed = movementSpeed;
     }
@@ -32,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnMovement(InputValue input)
     {
-        movementInput = input.Get<Vector2>();   
+        movementInput = input.Get<Vector2>();
+        characterAnimator.SetBool("isMoving", true);
     }
     private void OnCrouch() 
     {
@@ -54,7 +57,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnMovementStop(InputValue input)
     {
         movementInput = Vector3.zero;
-        
+        characterAnimator.SetBool("isMoving", false);
+
     }
     private void OnSprint()
     {

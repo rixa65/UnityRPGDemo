@@ -23,11 +23,7 @@ public class GraphicsMenu : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
     public void ChangeSensitivity()
     {
         int newSensitivity = (int)mouseSensitivitySlider.value;

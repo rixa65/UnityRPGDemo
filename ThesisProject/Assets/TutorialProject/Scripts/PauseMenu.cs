@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         playerObject.GetComponent<PlayerInput>().enabled = false;
         playerObject.GetComponent<AudioSource>().enabled = false;
         playerObject.GetComponent<PlayerSounds>().enabled = false;
+        playerObject.GetComponent<Animator>().SetBool("isMoving", false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         pauseMenuObject.SetActive(true);

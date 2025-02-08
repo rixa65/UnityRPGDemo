@@ -13,13 +13,11 @@ public class AudioMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI ambienceValueTxt;
     void Start()
     {
+        SetMasterVolume(1f);
+        SetSFXVolume(1f);
+        SetAmbienceVolume(1f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void SetMasterVolume(float volume)
     {
         int volumeToInt = (int)Mathf.Clamp((volume * 10),0,20);
