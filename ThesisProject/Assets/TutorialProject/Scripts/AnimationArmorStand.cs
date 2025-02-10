@@ -19,9 +19,4 @@ public class AnimationArmorStand : MonoBehaviour, IInteractable
         charactherAnimation = GetComponent<Animation>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

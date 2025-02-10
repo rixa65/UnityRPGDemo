@@ -39,19 +39,22 @@ public class PauseMenu : MonoBehaviour
     private void PauseGame()
     {
         isPaused = true;
-        Time.timeScale = 0f;
+        
         playerObject.GetComponent<PlayerInput>().enabled = false;
         playerObject.GetComponent<AudioSource>().enabled = false;
         playerObject.GetComponent<PlayerSounds>().enabled = false;
         playerObject.GetComponent<Animator>().SetBool("isMoving", false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        
+        //Time.timeScale = 0;
         pauseMenuObject.SetActive(true);
-   
+        //Animation pauseAnimation = pauseMenuObject.GetComponent<Animation>();
+       // pauseAnimation.Play("PauseMenuPopUp");
+        //StartCoroutine(PauseMenuAnimation(pauseAnimation));
+
 
     }
- 
+   
     public void UnPauseGame()
     {
         isPaused = false;
