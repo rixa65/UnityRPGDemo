@@ -9,26 +9,13 @@ public class PauseMenuAnimation : MonoBehaviour
     Animation popUp;
 
 
-    private void Start()
-    {
-        
-    }
+  
     private void Awake()
     {
         popUp = GetComponent<Animation>();
-        if (!popUp.isPlaying)
-        {
-            popUp.Play();
-        }
-        StartCoroutine(WaitForAnimation());
     }
-    private IEnumerator WaitForAnimation()
+    private void AtEndOfAnimation()
     {
-        yield return new WaitForSeconds(1f);
-        while (popUp.isPlaying)
-        {
-
-        }
         Time.timeScale = 0f;
     }
 
