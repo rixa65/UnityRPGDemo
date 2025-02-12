@@ -32,7 +32,7 @@ public class PlayerSounds : MonoBehaviour
     IEnumerator PlayRandomIdleSound()
     {
         yield return new WaitForSeconds(timerIdleSoundWait);
-        if (!characterAudioSource.isPlaying)
+        if (characterAudioSource.isActiveAndEnabled && !characterAudioSource.isPlaying)
         {
             int randomNumber = Random.Range(0, 3);
             switch (randomNumber)
