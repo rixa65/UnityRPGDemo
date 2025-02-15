@@ -1,15 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class SoundBank : MonoBehaviour
+public class EventController : MonoBehaviour
 {
-    public static SoundBank Instance { get; private set; }
-    public AudioClip stepAudio;
-    public AudioClip creepyWomanLaughterAudio;
-    public AudioClip sneezesAudio;
-    public AudioClip stomachNoisesAudio;
+    public static EventController Instance { get; private set; }
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -23,4 +19,10 @@ public class SoundBank : MonoBehaviour
             Instance = this;
         }
     }
+    public Action<string> OnQuestItemInteracted;
+    public void TriggerOnQuestItemInteracted(string name)
+    {
+        OnQuestItemInteracted?.Invoke(name);
+    }
+
 }
